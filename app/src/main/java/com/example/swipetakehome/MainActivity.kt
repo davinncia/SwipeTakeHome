@@ -6,10 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.swipetakehome.databinding.ActivityMainBinding
-import com.yuyakaido.android.cardstackview.CardStackLayoutManager
-import com.yuyakaido.android.cardstackview.CardStackListener
-import com.yuyakaido.android.cardstackview.Direction
-import com.yuyakaido.android.cardstackview.StackFrom
+import com.yuyakaido.android.cardstackview.*
 
 class MainActivity : AppCompatActivity(), CardStackListener {
 
@@ -28,6 +25,7 @@ class MainActivity : AppCompatActivity(), CardStackListener {
         setContentView(binding.root)
 
         setCardAdapter()
+        setButtons()
 
         viewModel.fetchUsers()
 
@@ -48,6 +46,22 @@ class MainActivity : AppCompatActivity(), CardStackListener {
 
         binding.stackView.layoutManager = cardStackManager
         binding.stackView.adapter = cardStackAdapter
+    }
+
+    private fun setButtons() {
+        binding.btnNope.setOnClickListener {
+            cardStackManager.setSwipeAnimationSetting(
+                SwipeAnimationSetting.Builder().setDirection(Direction.Left).build()
+            )
+            binding.stackView.swipe()
+        }
+
+        binding.btnYep.setOnClickListener {
+            cardStackManager.setSwipeAnimationSetting(
+                SwipeAnimationSetting.Builder().setDirection(Direction.Right).build()
+            )
+            binding.stackView.swipe()
+        }
     }
 
     //---------------------------------- C A L L B A C K S ---------------------------------------//

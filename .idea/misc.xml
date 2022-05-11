@@ -4,8 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/card_background.xml" value="0.1075" />
+        <entry key="app/src/main/res/drawable/circle_green.xml" value="0.1075" />
         <entry key="app/src/main/res/drawable/circle_red.xml" value="0.1075" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.20244565217391305" />
+        <entry key="app/src/main/res/drawable/ic_check.xml" value="0.1075" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.375" />
         <entry key="app/src/main/res/layout/item_swipe_card.xml" value="0.19610507246376813" />
       </map>
     </option>
