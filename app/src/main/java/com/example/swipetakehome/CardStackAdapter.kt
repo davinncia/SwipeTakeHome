@@ -12,7 +12,7 @@ import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 import com.example.swipetakehome.databinding.ItemSwipeCardBinding
 
-class CardStackAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class CardStackAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     var items: List<Profile> = listOf()
         set(value) {
@@ -59,7 +59,7 @@ class CardStackAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             gallery = profile.photos
             if (gallery.isNullOrEmpty())
                 gallery = listOf("https://img.myloview.fr/stickers/default-profile-picture-avatar-photo-placeholder-vector-illustration-400-197279432.jpg")
-            //itemView.doOnLayout { binding.galleryIndicator.displayGalleryIndicators(gallery.size) } todo
+            itemView.doOnLayout { binding.galleryIndicator.displayGalleryIndicators(gallery.size) }
 
             preloadPictures(profile.photos)
             displayPicture(gallery[0])
@@ -71,7 +71,7 @@ class CardStackAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         private fun displayPicture(url: String) {
 
             itemView.doOnLayout { // Make sur itemView is laid out to get width & height
-                //binding.galleryIndicator.selectGalleryIndicator(galleryPosition) todo
+                binding.galleryIndicator.selectGalleryIndicator(galleryPosition)
 
                 Glide
                     .with(binding.imageView.context)
@@ -105,5 +105,4 @@ class CardStackAdapter(): RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             }
         }
     }
-
 }
