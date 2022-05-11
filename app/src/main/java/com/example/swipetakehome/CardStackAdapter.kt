@@ -51,8 +51,8 @@ class CardStackAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
 
         fun bind(profile: Profile) {
-            binding.mainText.text = profile.first_name //todo
-            binding.secondaryText.text = profile.city //todo
+            binding.mainText.text = "${profile.first_name}, 21"
+            binding.secondaryText.text = "${profile.city}, ${profile.country}"
 
 
             galleryPosition = 0

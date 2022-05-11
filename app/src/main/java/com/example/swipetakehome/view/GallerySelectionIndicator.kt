@@ -55,7 +55,7 @@ class GallerySelectionIndicator @JvmOverloads constructor(
     }
 
     companion object {
-        private const val MARGIN_DP = 2
+        private const val MARGIN_DP = 5
     }
 
 }

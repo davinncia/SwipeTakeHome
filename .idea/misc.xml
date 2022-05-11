@@ -8,7 +8,8 @@
         <entry key="app/src/main/res/drawable/circle_red.xml" value="0.1075" />
         <entry key="app/src/main/res/drawable/gallery_indicator.xml" value="0.1075" />
         <entry key="app/src/main/res/drawable/ic_check.xml" value="0.1075" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.375" />
+        <entry key="app/src/main/res/drawable/shadow.xml" value="0.1075" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.165" />
         <entry key="app/src/main/res/layout/item_swipe_card.xml" value="0.19610507246376813" />
       </map>
     </option>
