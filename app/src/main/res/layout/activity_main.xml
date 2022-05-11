@@ -26,6 +26,7 @@
         android:textSize="17sp"
         tools:text="9"
         android:textStyle="bold"
+        android:fontFamily="@font/pro_display"
         android:gravity="center"
         app:layout_constraintTop_toTopOf="@id/logo"
         app:layout_constraintBottom_toBottomOf="@id/logo"
@@ -41,5 +42,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <com.yuyakaido.android.cardstackview.CardStackView
+        android:id="@+id/stack_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="40dp"
+        app:layout_constraintDimensionRatio="3:4"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/logo"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

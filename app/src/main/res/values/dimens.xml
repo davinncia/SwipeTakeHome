@@ -2,4 +2,5 @@
 <resources>
     <dimen name="card_radius">20dp</dimen>
     <dimen name="elevation">10dp</dimen>
+    <dimen name="profile_info_height">93dp</dimen>
 </resources>

@@ -17,6 +17,7 @@
             android:id="@+id/image_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/profile_info_height"
             android:scaleType="centerCrop" />
 
         <View
@@ -28,7 +29,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/info_layout"
         android:layout_width="match_parent"
-        android:layout_height="93dp"
+        android:layout_height="@dimen/profile_info_height"
         android:background="@drawable/card_background"
         app:layout_constraintBottom_toBottomOf="parent">
 
