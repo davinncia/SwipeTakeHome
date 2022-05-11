@@ -2,6 +2,7 @@ package com.example.swipetakehome
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
@@ -32,6 +33,10 @@ class MainActivity : AppCompatActivity(), CardStackListener {
         viewModel.users.observe(this) {
             cardStackAdapter.items = it
         }
+
+        viewModel.matchCount.observe(this) {
+            binding.matchCountText.text = it.toString()
+        }
     }
 
     private fun setCardAdapter() {
@@ -42,7 +47,6 @@ class MainActivity : AppCompatActivity(), CardStackListener {
             setTranslationInterval(18.0f)
             setScaleInterval(0.90f)
         }
-
 
         binding.stackView.layoutManager = cardStackManager
         binding.stackView.adapter = cardStackAdapter
@@ -70,6 +74,7 @@ class MainActivity : AppCompatActivity(), CardStackListener {
     }
 
     override fun onCardSwiped(direction: Direction?) {
+        if (direction == Direction.Right) viewModel.checkForMatch()
     }
 
     override fun onCardRewound() {
@@ -79,6 +84,9 @@ class MainActivity : AppCompatActivity(), CardStackListener {
     }
 
     override fun onCardAppeared(view: View?, position: Int) {
+        if (position in 0..cardStackAdapter.items.lastIndex) {
+            viewModel.currentProfileDisplayed = cardStackAdapter.items[position]
+        }
     }
 
     override fun onCardDisappeared(view: View?, position: Int) {

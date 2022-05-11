@@ -22,16 +22,25 @@ class MainViewModel(): ViewModel() {
     private val _users = MutableLiveData<List<Profile>>()
     val users: LiveData<List<Profile>> = _users
 
+    private val _matchCount = MutableLiveData<Int>(0)
+    val matchCount: LiveData<Int> = _matchCount
+
+    var currentProfileDisplayed: Profile? = null
+
     fun fetchUsers() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val response = service.getAll().data
                 _users.postValue(response)
-                // Here should be caching -> Database observation
             } catch (cause: Throwable) {
                 Log.e("TAG", "FAILED TO FETCH PROFILES: ", cause)
-                // If anything throws an exception, inform the caller
             }
+        }
+    }
+
+    fun checkForMatch() {
+        if (currentProfileDisplayed?.is_match == true) {
+            _matchCount.value = _matchCount.value!! + 1
         }
     }
 }
